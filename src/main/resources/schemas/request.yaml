@@ -1,0 +1,39 @@
+type: object
+description: Request
+properties:
+  accountIds:
+    description: Array of account identifiers.
+    items:
+      type: string
+    type: array
+  dateFrom:
+    description: Date from which the statements should be retrieved.
+    type: string
+  dateTo:
+    description: Date to which the statements should be retrieved.
+    type: string
+  category:
+    description: Categories to filter on.
+    items:
+      type: string
+    type: array
+  from:
+    description: Skip over a page of elements by specifying a start value for the query.
+    format: int32
+    type: integer
+  cursor:
+    description: As an alternative for specifying 'from' this allows to point to the record to start the selection from.
+    type: string
+  size:
+    description: Size
+    format: int32
+    type: integer
+  orderBy:
+    description: Order by field
+    type: string
+  direction:
+    description: Direction
+    enum:
+      - ASC
+      - DESC
+    type: string

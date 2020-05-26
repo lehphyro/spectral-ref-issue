@@ -1,0 +1,9 @@
+type: object
+description: Categories
+properties:
+  categories:
+    items:
+      type: string
+    type: array
+required:
+  - categories

@@ -1,0 +1,29 @@
+type: object
+properties:
+  accountId:
+    description: Reference to the account to which the statement belongs
+    type: string
+  accountName:
+    description: Name of account
+    type: string
+  accountNumber:
+    description: Number of account
+    type: string
+  date:
+    description: The context agnostic statement date
+    format: date
+    type: string
+  description:
+    description: The description of the statement
+    type: string
+  category:
+    description: Category of the account statement
+    type: string
+  documents:
+    description: List of documents provided by the bank
+    items:
+      $ref: '../openapi.yaml#/components/schemas/AccountStatementIdentification'
+    type: array
+required:
+  - date
+  - documents

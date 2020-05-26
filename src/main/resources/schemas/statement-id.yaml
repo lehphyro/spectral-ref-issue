@@ -1,0 +1,11 @@
+type: object
+properties:
+  uid:
+    description: Unique identification of the statement
+    type: string
+  url:
+    description: The url to download the statement
+    type: string
+  contentType:
+    description: The MIME type of the document
+    type: string

@@ -1,0 +1,4 @@
+type: array
+items:
+  $ref: '../openapi.yaml#/components/schemas/AccountStatement'
+description: List of account statements

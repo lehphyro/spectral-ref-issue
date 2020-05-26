@@ -1,0 +1,248 @@
+openapi: 3.0.1
+info:
+  description: Description
+  title: Title
+  version: v2
+servers:
+  - description: Prism mock server
+    url: 'http://localhost:4010'
+tags:
+  - name: statement
+paths:
+  /account/statements:
+    description: Description
+    get:
+      description: Description
+      operationId: getStatements
+      parameters:
+        - description: Description
+          in: query
+          name: accountId
+          required: false
+          schema:
+            maxLength: 256
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'examples/response.json'
+              schema:
+                $ref: '#/components/schemas/AccountStatementsResponse'
+          description: Description
+        "400":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/bad-request-validation-error.json'
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+          description: Description
+        "500":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/internal-server-error.json'
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+          description: Description
+        "401":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/forbidden-error.json'
+              schema:
+                $ref: '#/components/schemas/UnauthorizedAltError'
+          description: Description
+        "403":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/forbidden-error.json'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: Description
+      summary: Summary
+      tags:
+        - statement
+    post:
+      description: Description
+      operationId: postStatements
+      requestBody:
+        content:
+          application/json:
+            examples:
+              example:
+                value:
+                  $ref: 'examples/request.json'
+            schema:
+              $ref: '#/components/schemas/AccountStatementsPostRequest'
+        description: Description
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'examples/response.json'
+              schema:
+                $ref: '#/components/schemas/AccountStatementsResponse'
+          description: Description
+        "400":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/bad-request-validation-error.json'
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+          description: Description
+        "500":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/internal-server-error.json'
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+          description: Description
+        "401":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/forbidden-error.json'
+              schema:
+                $ref: '#/components/schemas/UnauthorizedAltError'
+          description: Description
+        "403":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/forbidden-error.json'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: Description
+      summary: Summary
+      tags:
+        - statement
+    summary: Summary
+  /account/statements/categories:
+    description: Description
+    get:
+      description: Description
+      operationId: getCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'examples/categories-response.json'
+              schema:
+                $ref: '#/components/schemas/AccountStatementsCategoriesResponse'
+          description: Description
+      summary: Summary
+      tags:
+        - statement
+    summary: AccountStatementsCategories
+  /account/statements/download/{uid}:
+    description: Description
+    get:
+      description: Description
+      operationId: downloadAccountStatements
+      responses:
+        "200":
+          content: {}
+          description: Description
+        "404":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/not-found-error.json'
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+          description: Description
+        "400":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/bad-request-validation-error.json'
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+          description: Description
+        "500":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    message: Description of error
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+          description: Description
+        "403":
+          content:
+            application/json:
+              examples:
+                example:
+                  value:
+                    $ref: 'https://stash.backbase.com/projects/API/repos/common-types/raw/src/examples/forbidden-error.json'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: Description
+      summary: Summary
+      tags:
+        - statement
+    parameters:
+      - description: Description
+        in: path
+        name: uid
+        required: true
+        schema:
+          type: string
+    summary: Summary
+components:
+  schemas:
+    AccountStatement:
+      $ref: schemas/statement.yaml
+    AccountStatementIdentification:
+      $ref: schemas/statement-id.yaml
+    AccountStatementsCategoriesResponse:
+      $ref: schemas/categories-response.yaml
+    AccountStatementsPostRequest:
+      $ref: schemas/request.yaml
+    AccountStatementsResponse:
+      $ref: schemas/response.yaml
+    UnauthorizedAltError:
+      $ref: https://stash.backbase.com/projects/API/repos/common-types/raw/src/schemas/forbidden-error.yaml
+    BadRequestError:
+      $ref: https://stash.backbase.com/projects/API/repos/common-types/raw/src/schemas/bad-request-error.yaml
+    NotFoundError:
+      $ref: https://stash.backbase.com/projects/API/repos/common-types/raw/src/schemas/not-found-error.yaml
+    ForbiddenError:
+      $ref: https://stash.backbase.com/projects/API/repos/common-types/raw/src/schemas/forbidden-error.yaml
+    InternalServerError:
+      $ref: https://stash.backbase.com/projects/API/repos/common-types/raw/src/schemas/internal-server-error.yaml

@@ -1,0 +1,17 @@
+{
+  "accountIds": [
+    "1",
+    "2"
+  ],
+  "dateFrom": "2020-01-01",
+  "dateTo": "2020-01-01",
+  "category": [
+    "cat_1",
+    "cat_2"
+  ],
+  "from": 20,
+  "cursor": "cursor",
+  "size": 80,
+  "orderBy": "date",
+  "direction": "ASC"
+}
