@@ -1,0 +1,8 @@
+{
+  "message": "Resource not found.",
+  "errors": [
+    {
+      "message": "Unable to find the resource requested resource: {resource}."
+    }
+  ]
+}

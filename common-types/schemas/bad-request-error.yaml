@@ -1,0 +1,12 @@
+type: object
+properties:
+  message:
+    description: Description
+    type: string
+  errors:
+    description: Description
+    type: array
+    items:
+      $ref: error-item.yaml
+required:
+  - message

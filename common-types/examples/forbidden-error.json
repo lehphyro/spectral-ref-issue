@@ -1,0 +1,8 @@
+{
+  "message": "Access to requested resource denied.",
+  "errors": [
+    {
+      "message": "Resource access denied due to an insufficient user quota of {quota}."
+    }
+  ]
+}
